@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	>
+	<bean id="a" class="evan.beans.Address">
+	<constructor-arg value="khusibu" type="String">	</constructor-arg>
+	<constructor-arg value="kathmandu" type="String">	</constructor-arg>
+	<constructor-arg value="nepal" type="String">	</constructor-arg>
+	</bean>
+	<bean id="a1" class="evan.beans.Address">
+	<constructor-arg value="khusibu" type="String">	</constructor-arg>
+	<constructor-arg value="kathmandu" type="String">	</constructor-arg>
+	<constructor-arg value="india" type="String">	</constructor-arg>
+	</bean>
+	<bean id="a2" class="evan.beans.Address">
+	<constructor-arg value="khusibu" type="String">	</constructor-arg>
+	<constructor-arg value="kathmandu" type="String">	</constructor-arg>
+	<constructor-arg value="japan" type="String">	</constructor-arg>
+	</bean>
+	<bean id="e" class="evan.beans.Employee">
+	<constructor-arg value="10" type="int">	</constructor-arg>
+	<constructor-arg value="evan" type="String">	</constructor-arg>
+	<constructor-arg>
+	<ref bean="a"></ref>
+	</constructor-arg>
+	
+	</bean>
+	<bean id="e1" class="evan.beans.Employee">
+	
+	<constructor-arg>
+	<list>
+	<ref bean="a" />
+	<ref bean="a1" />
+	<ref bean="a2" />
+	</list>
+	</constructor-arg>
+	
+	</bean>
+	<bean id="p1" class="evan.beans.PartEmployee" parent="e">
+	
+	<constructor-arg>
+	
+	</constructor-arg>
+	
+	</bean>
+</beans>
