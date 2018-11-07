@@ -1,10 +1,9 @@
 package spring.jdbc;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 
@@ -45,6 +44,8 @@ public int deleteEmployee(Employee e){
 
 
 public List<Employee> listStudents() {
+	
+	
     String SQL = "select * from Employee";
     List <Employee> students = (List<Employee>) jdbcTemplate.query(SQL, new Employmapper());
     return students;
