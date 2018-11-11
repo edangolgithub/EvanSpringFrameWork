@@ -17,6 +17,7 @@ public class StudentDao
 	{
 		private JdbcTemplate jdbcTemplate;
 		private DataSource dataSource;
+		
 		private List<Student> slist;
 
 		public JdbcTemplate getJdbcTemplate()
@@ -39,25 +40,79 @@ public class StudentDao
 				this.dataSource = dataSource;
 				this.jdbcTemplate=new JdbcTemplate(dataSource);
 			}
+		
+		
+		
+		
 		public List<Student> GetStudentListWithRowMapper()
 			{
 			 String sql="select * from Student";
-			 List<Student> slist=jdbcTemplate.query(sql, new RowMapper<Student>() {
+			 
+			 
+			 
+			 List<Student> slt=jdbcTemplate.query(sql,new RowMapper<Student>() {
+
+				@Override
+				public Student mapRow(ResultSet rs, int arg1) throws SQLException {
+					
+					int id=rs.getInt("studentid");
+					String name=rs.getString("studentname");
+					String roll=rs.getString("roll");
+					String grade=rs.getString("grade");
+					
+					Student s= new Student();
+					s.setStudentid(id);
+					s.setStudentname(name);
+					s.setRoll(roll);
+					s.setGrade(grade);
+					return s;
+				}});
+			 
+			/* List<Student> slist=jdbcTemplate.query(sql, new RowMapper<Student>() {
 
 				@Override
 				public Student mapRow(ResultSet rs, int rownum) throws SQLException
 					{
 						Student s= new Student(rs.getString("studentname"), rs.getString("roll"), rs.getString("grade"));						
 						return s;
-					}});
-			 this.slist=slist;
+					}});*/
+			 
+			 
+			 this.slist=slt;
 			 return this.slist;
 			}
 		
 		public List<Student> GetStudentListWithResultSetExtractor()
 		{
 			  String SQL = "select * from Student";
-			 setSlist(jdbcTemplate.query(SQL, new ResultSetExtractor<List<Student>>() {
+			  List<Student> slt=new ArrayList<Student>();
+			  slt=jdbcTemplate.query(SQL,new ResultSetExtractor<List<Student>>() {
+
+				@Override
+				public List<Student> extractData(ResultSet rs) throws SQLException, DataAccessException {
+					List<Student> slt=new ArrayList<Student>();
+					while(rs.next())
+					{
+						int id=rs.getInt("studentid");
+						String name=rs.getString("studentname");
+						String roll=rs.getString("roll");
+						String grade=rs.getString("grade");
+						
+						Student s= new Student();
+						s.setStudentid(id);
+						s.setStudentname(name);
+						s.setRoll(roll);
+						s.setGrade(grade);
+						
+						slt.add(s);
+					}
+					
+					return slt;
+				}});
+			  
+			  this.slist=slt;
+			  
+			 /*setSlist(jdbcTemplate.query(SQL, new ResultSetExtractor<List<Student>>() {
 
 					@Override
 					public List<Student> extractData(ResultSet rs) throws SQLException, DataAccessException
@@ -69,7 +124,7 @@ public class StudentDao
 							slist.add(s);
 							}
 						return slist;
-						}}));
+						}}));*/
 			 return slist;
 		}
 		public List<Map<String,Object>> listStudents() {

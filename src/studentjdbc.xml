@@ -6,8 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-<bean id="ds"
- class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 <property name="url" value="jdbc:mysql://localhost/school?useSSL=false" />
 <property name="username" value="root" />
@@ -34,8 +33,7 @@
 
 
 
-   <bean id = "edao" 
-      class = "spring.jdbc.student.StudentDao">
+   <bean id = "edao" class = "spring.jdbc.student.StudentDao">
       <property name = "dataSource" ref = "ds" />    
    </bean>
 

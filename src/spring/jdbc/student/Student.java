@@ -46,7 +46,10 @@ public class Student
 			{
 				this.grade = grade;
 			}
-
+public Student()
+{
+	
+}
 		public Student(String studentname, String roll, String grade)
 			{
 				super();
