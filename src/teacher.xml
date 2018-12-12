@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans 
-    xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
@@ -9,16 +8,19 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd"
 	>
-
- 
-
- <bean id="sbean" class="evan.beans.Student">
- 
-  
-  <constructor-arg value="bijay"></constructor-arg>
-  <constructor-arg value="45" type="int"></constructor-arg>
-
-
- </bean>
-
+	<bean id="add" class="evan.beans.TeacherAddress">
+	<constructor-arg value="Kirtipur"></constructor-arg>
+	</bean>
+	
+	<bean id="teacher" class="evan.beans.Teacher">
+	
+	<constructor-arg value="bijay"></constructor-arg>
+	
+	<constructor-arg >
+	
+	<ref bean="add" />
+	
+	</constructor-arg>
+	</bean>
+	
 </beans>
