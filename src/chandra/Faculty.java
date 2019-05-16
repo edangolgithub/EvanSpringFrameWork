@@ -4,14 +4,17 @@ import java.util.List;
 
 import javax.security.auth.Subject;
 
-enum facult {
-	  humanities,
-	  scoence,
-	  commerce,cimputer,englixh
-	}
+
 public class Faculty {
 	
 int facultyid;
-facult facultyname;
-List<Subject> subjects;
+String facultyname;
+List<String> subjects;
+public Faculty(int facultyid, String facultyname, List<String> subjects) {
+	super();
+	this.facultyid = facultyid;
+	this.facultyname = facultyname;
+	this.subjects = subjects;
+}
+
 }

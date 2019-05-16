@@ -5,6 +5,13 @@ public class StudentManager
  Student Student;
  Semester semeseter;
  Faculty faculty;
+ 
+public StudentManager(Student student, Semester semeseter, Faculty faculty) {
+	super();
+	Student = student;
+	this.semeseter = semeseter;
+	this.faculty = faculty;
+}
 public Student getStudent() {
 	return Student;
 }
