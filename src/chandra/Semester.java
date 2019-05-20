@@ -1,13 +1,15 @@
 package chandra;
-
+enum semenum{
+	I,II,III,IV
+}
 public class Semester {
     int semid;
-	String sem;
+	semenum sem=semenum.I;
 	double durationinmnths;
-	public Semester(int semid, String sem, double durationinmnths) {
+	public Semester(int semid, semenum s, double durationinmnths) {
 		super();
 		this.semid = semid;
-		this.sem = sem;
+		this.sem = s;
 		this.durationinmnths = durationinmnths;
 	}
 	

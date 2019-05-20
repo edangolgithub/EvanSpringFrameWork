@@ -10,7 +10,8 @@ public class StudentMain {
 		
 		StudentManager sm= (StudentManager) cntext.getBean("sm");
 		System.out.println(sm.Student.name);
-		System.out.println(sm.Student.Address.Country);
+		System.out.println(sm.semeseter.sem);
+		System.out.println(sm.semeseter.durationinmnths);
 
 	}
 

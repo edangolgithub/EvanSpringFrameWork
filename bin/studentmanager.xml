@@ -25,7 +25,7 @@
 	</bean>
 	<bean id="se" class="chandra.Semester">
 	<constructor-arg value="1" type="int">	</constructor-arg>
-	<constructor-arg value="II" type="String">	</constructor-arg>
+	<constructor-arg value="II" type="chandra.semenum">	</constructor-arg>
 	<constructor-arg value="6" type="double">	</constructor-arg>
 	</bean>
 	<bean id="a" class="chandra.Address">
