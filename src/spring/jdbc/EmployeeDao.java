@@ -13,6 +13,7 @@ public class EmployeeDao
 {
 private JdbcTemplate jdbcTemplate;
 private DataSource dataSource;
+
 public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 	this.jdbcTemplate = jdbcTemplate;
 }
@@ -47,8 +48,8 @@ public List<Employee> listStudents() {
 	
 	
     String SQL = "select * from Employee";
-    List <Employee> students = (List<Employee>) jdbcTemplate.query(SQL, new Employmapper());
-    return students;
+    List <Employee> es = (List<Employee>) jdbcTemplate.query(SQL, new Employmapper());
+    return es;
  }
 
 

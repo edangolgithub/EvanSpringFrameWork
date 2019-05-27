@@ -1,7 +1,7 @@
 package chandra;
 enum sub
 {
-	nepali,cimputer,english
+	nepali,cimputer,english,computer,account
 }
 public class Subjects {
 int subid;
