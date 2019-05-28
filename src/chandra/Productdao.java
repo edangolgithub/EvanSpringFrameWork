@@ -1,8 +1,15 @@
 package chandra;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+import spring.jdbc.student.Student;
 
 public class Productdao 
 {
@@ -35,4 +42,15 @@ public boolean insert(Product p)
 	}
 }
 
+public List<Product> SelectRowmapper()
+{
+	String sql="select * from Product"; 
+	 
+	 
+	 List<Product> products=jt.query(sql,new Productrowmapper());
+	 return products;
 }
+
+
+}
+
