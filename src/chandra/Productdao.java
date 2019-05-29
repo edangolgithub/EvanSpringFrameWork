@@ -41,6 +41,18 @@ public boolean insert(Product p)
 		return false;
 	}
 }
+public boolean update(Product p)
+{
+	String query="update product set productname=?,price=? where productid=?";
+	if(jt.update(query,p.productname,p.price,p.productid)==1)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
 public List<Product> SelectRowmapper()
 {
